@@ -1,3 +1,10 @@
+function nombre_usuario(num1, num2) {
+    document.getElementById("formulario_usuario").innerHTML = "<div id='div_usuario'><form action=''><h3>Nombre:</h3><input type='text' id='nombre_usuario'> <button onclick='nombre_memorama(),armado_cartas(" + num1 + "),posicion_cartas(" + num2 + "),cronometro(" + num1 + ")' id='botonJugar'>Jugar</button></form></div>";
+}
+
+
+
+
 var palabras = ["ABOGADO", "ANGEL", "ENOJADO", "CALABAZA", "VOLADOR", "JIRAFA", "LIBRO", "RELAMPAGO", "DESMAYO", "CONCEBIR", "VERTICE", "SUCUMBIR", "BARBERO", "DICCIONARIO", "ELEFANTE", "HERMANO", "HOSPITAL", "DESARROLLADOR", "DESTORNILLADOR", "ELECTRICO", "ASCENSOR", "ADAPTACION", "AGUDO", "ANTIBIOTICO", "CIRCULACION", "PLASTICO", "GENERAR", "NUMERO",];
 
 /*Elección aleatoria de la palabra (posicion del array)*/

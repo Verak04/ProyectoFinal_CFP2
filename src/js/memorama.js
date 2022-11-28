@@ -37,7 +37,7 @@ var imagen = ["../img/tarjetas/imagen1.jfif", "../img/tarjetas/imagen2.jfif", ".
 
 
 function nombre_usuario(num1, num2) {
-    document.getElementById("formulario_usuario").innerHTML = "<div id='div_usuario'><form action=''><h3>Nombre:</h3><input type='text' id='nombre_usuario'> <button onclick='nombre_memorama(),armado_cartas(" + num1 + "),posicion_cartas(" + num2 + "),cronometro(" + num1 + ")' id='botonJugar'>Jugar</button></form></div>";
+    document.getElementById("formulario_usuario").innerHTML = "<div id='div_usuario'><form action=''><h3>Nombre:</h3><input type='text' id='nombre_usuario'> <button onclick='nombre_memorama(),armado_cartas(" + num1 + "),posicion_cartas(" + num2 + "),cronometro(" + num1 + "," + num1 + "," + num2 + ")' id='botonJugar'>Jugar</button></form></div>";
 }
 
 var usuario_memorama = [];
@@ -136,33 +136,29 @@ function comparacionCarta(cont, dificultad) {
 }
 var segundos = 0;
 var minutos = 0;
-function cronometro(numero) {
+function cronometro(numero, num1, num2) {
+    let numero1=num1;
+    let numero2=num2;
     document.getElementById("cronometro").innerHTML = "<h3>" + minutos + ":" + segundos + "</h3>"
-    if (numero!=correctas) {
+    if (numero != correctas) {
         if (segundos == 60) {
             minutos++;
             setTimeout("cronometro()", 1000);
         } else {
             segundos++;
-            setTimeout("cronometro("+numero+")", 1000);
+            setTimeout("cronometro(" + numero + ")", 1000);
         }
-    }else{
-        Swal.fire({
-            icon: 'success',
-            title: 'Felicitaciones!</br> Tu tiempo fue de '+ minutos + ':' + segundos ,
+    } else {
+        swal({
+            icon: "success",
+            title: 'Felicitaciones! Tu tiempo fue de ' + minutos + ':' + segundos,
             showConfirmButton: false,
-            timer: 2500,
-            padding: '3em',
-            color: '#716add',
-            background: '#fff url(/images/trees.png)',
-            backdrop: `
-              rgba(0,0,123,0.4)
-              url("/images/nyan-cat.gif")
-              left top
-              no-repeat
-            `
-
-          })
-        
+            timer: 4000,
+            background: 'rgba(63,255,106,0.69)',
+            border: '3px solid white'
+        });
+        armado_cartas(3);
+        posicion_cartas(6);
     }
+
 }
