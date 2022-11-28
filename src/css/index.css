@@ -21,19 +21,36 @@ body {
     background: linear-gradient(45deg, rgb(88, 3, 60), rgb(36, 22, 68));
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
+
 }
 
 #body_memorama {
     background: linear-gradient(45deg, rgb(245, 112, 220), rgb(36, 22, 68));
-    background-repeat: no-repeat;
-    background-size: 100vw 100vh;
+}
+
+#body_seguime {
+    background: linear-gradient(45deg, rgb(132, 112, 245), rgb(53, 155, 75));
 }
 
 header,
 nav {
-    height: 20px;
     width: 100%;
     background: rgb(222, 179, 245);
+    box-sizing: border-box;
+}
+
+.boton_salir {
+    width: 15%;
+    height: 30px;
+    border: none;
+    background: rgb(222, 179, 245);
+    margin-left: 85%;
+    font-weight: bolder;
+}
+
+.boton_salir a:hover {
+    font-size: 18px;
+    color: aqua;
 }
 
 #logo img {
@@ -90,6 +107,7 @@ h1 {
 #sector_juegos div div {
     background: linear-gradient(90deg, rgb(210, 139, 6), rgb(255, 255, 255));
 }
+
 #sector_juegos div div:hover {
     margin-left: 0;
     margin-top: 0;
@@ -97,6 +115,15 @@ h1 {
     height: 33vh;
     background: linear-gradient(90deg, rgb(112, 103, 238), rgb(245, 177, 3));
 }
+
+#sector_juegos h2 {
+    font-family: 'ChocoTxtRegular';
+    font-weight: normal;
+    font-style: normal;
+    padding: 20%;
+    font-size: 3vw;
+}
+
 .nombre {
     color: rgb(192, 93, 245);
     text-align: center;
@@ -387,10 +414,13 @@ li {
     color: rgb(76, 212, 212);
 }
 
+
+
+
 #juego div ul {
     border-style: dashed;
     border-radius: 10px;
-    margin: 10px;
+    margin: 5px;
     height: 90%;
 }
 
@@ -422,7 +452,10 @@ li {
 
 #juego48 {
     grid-template-columns: repeat(12, 1fr);
+    margin: 0;
+    padding: 0;
 }
+
 
 #juego6 .imagen_carta {
     width: 44%;
@@ -516,6 +549,56 @@ div .adivinando {
 .adivinando:hover {
     cursor: pointer;
 }
+
+#cubos4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#cubos16 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#cubos36 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+#cubos64 {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+#juego_seguime {
+    width: 50%;
+    height: 700px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.div_cubos {
+    border-style: groove;
+    width: 100%;
+}
+
+#cubos4 .div_cubos {
+    height: 40vh;
+}
+
+#cubos16 .div_cubos {
+    height: 20vh;
+}
+
+#cubos36 .div_cubos {
+    height: 15vh;
+}
+
+#cubos64 .div_cubos {
+    height: 10vh;
+}
+
+
 
 @media (max-width:700px) {
     #div_usuario {
@@ -681,10 +764,12 @@ div .adivinando {
         padding: 20px;
         margin: 0;
     }
+
     #sector_juegos {
         grid-template-columns: repeat(1, 1fr);
-       padding: 5%;
+        padding: 5%;
     }
+
     #sector_juegos div {
         border-radius: 30px;
         margin-top: 20px;
@@ -693,18 +778,23 @@ div .adivinando {
         height: 20vh;
         background: linear-gradient(90deg, rgb(112, 103, 238), rgb(245, 177, 3));
     }
-    
-    
+
+
     #sector_juegos div div {
         background: linear-gradient(90deg, rgb(210, 139, 6), rgb(255, 255, 255));
-        
+
     }
+
     #sector_juegos div div:hover {
         margin-top: 20px;
         margin-left: 30px;
         width: 75vw;
         height: 20vh;
         background: linear-gradient(90deg, rgb(20, 5, 230), rgb(243, 208, 121));
-    
+
+    }
+    #juego_seguime {
+        width: 90%;
+        
     }
 }
