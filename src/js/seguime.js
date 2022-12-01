@@ -1,4 +1,4 @@
-//4,16,20
+
 var cubo = [];
 var color = ["#ffffff", "transparent"]
 var cont = 0;
@@ -12,6 +12,10 @@ function armado_cubos(dificultad) {
         document.getElementById("cubos" + dificultad).innerHTML += "<div class='div_cubos' id='lugar" + cont + "'><button onclick='pulzarluz(" + cont + ")'></button><div>";
     }
 }
+function abrirSeguime(dificultad){
+    localStorage.setItem("cubos",dificultad)
+    window.location.href="./seguime.html"
+};
 var vacio = []
 var cuboN = [];
 var colorN = []
@@ -43,21 +47,14 @@ function empezar(niveles, vueltas) {
             cuboN.push(numero);
         }
     }
-
     while (niveles > colorN.length) {
         colorN.push(color[0]);
         colorN.push(color[1]);
-
     }
     console.log(cuboN);
     segundos[0] = 0;
     p_cubo[0] = 0;
-
-
-
-
     luz(vueltas[0])
-
 }
 
 var cont_error = 0;
@@ -69,41 +66,35 @@ function pulzarluz(cont) {
         document.getElementById("lugar" + cont).style.backgroundColor = "transparent";
     }, 500)
     setTimeout(() => {
-        if (cont === cuboN[p_cubo[0]]) {
-            let numero = p_cubo[0]
-            p_cubo[0] = numero + 2;
-            cont_bien++;
+    if (cont === cuboN[p_cubo[0]]) {
+        let numero = p_cubo[0]
+        p_cubo[0] = numero + 2;
+        cont_bien++;
 
-        } else if (cont_error > 1) {
-            document.getElementById("mensaje").innerHTML = "<h2 class='error'>3 Error</h3>";
-            setTimeout(() => { document.getElementById("mensaje").innerHTML = "" }, 500)
-            setTimeout(() => { document.getElementById("mensaje").innerHTML = "<h2 class='error'>Perdiste!</h3>"; }, 100);
-            setTimeout(() => { document.getElementById("mensaje").innerHTML = "" }, 2000)
-            cont_error = 0;
-            vueltas[0] = 4;
+    } else if (cont_error > 1) {
+        setTimeout(()=>{ alert("Perdiste"),500});
+        cont_error = 0;
+        vueltas[0] = 2;
+        window.location.href="./ingreso_seguime.html"
+        
 
-        } else {
-            cont_error++;
-            document.getElementById("mensaje").innerHTML = "<h2 class='error'>" + cont_error + " Error</h3>";
-            setTimeout(() => { document.getElementById("mensaje").innerHTML = "" }, 1000)
-            cont_bien = 0;
-            setTimeout(() => {
-                empezar(20, vueltas[0]);
-            }, 2000);
-        }
-    }, 500);
+    } else {
+        cont_error++;
+        document.getElementById("mensaje").innerHTML = "<h2 class='error'>" + cont_error + " Error</h3>";
+        document.getElementById("mensaje").innerHTML = "";
+        cont_bien = 0;
+        setTimeout(()=>{ alert("Error. Intentalo otra vez!"),500});
+        setTimeout(()=>{ empezar(20, vueltas[0]),700});
+    }
 
-    if (cont_bien === (vueltas[0] / 2)-1) {
-        setTimeout(alert(), 1500);
+    if (cont_bien === (vueltas[0] / 2)) {
+        cont_bien = 0;
+        setTimeout(()=>{ alert("Siguiente nivel"),700})
         let numLuz = vueltas[0];
         vueltas[0] = numLuz + 2;
-        cont_bien = 0;
-        empezar(20, vueltas[0]);
-    }
+        setTimeout(()=>{ empezar(20, vueltas[0]),700});
+        
+    }}, 1000)
 }
-
-function niveles_() {
-
-}
-
-armado_cubos(4);
+let cubos=localStorage.getItem("cubos");
+armado_cubos(cubos);

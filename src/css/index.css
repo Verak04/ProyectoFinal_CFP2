@@ -5,10 +5,10 @@
 }
 
 body {
-    background: rgb(245, 15, 3);
-    background: radial-gradient(circle, rgba(245, 15, 3, 0.6110819327731092) 9%, rgba(0, 2, 6, 1) 78%);
-    background-repeat: no-repeat;
-    background-size: 100vw 100vh;
+   background-image: url(../img/fondo.jpg);
+   background-repeat: no-repeat;
+   background-size: 100vw 110vh;
+   
 }
 
 #body_principal {
@@ -84,7 +84,7 @@ nav {
 h1 {
     font-size: 3vw;
     margin-top: 5px;
-    color: rgb(104, 240, 145);
+    color: rgb(17, 237, 83);
     font-weight: bold;
 }
 
@@ -162,14 +162,27 @@ h1 {
 
 }
 
+#ahorcado{
+    color: rgb(250, 250, 251);
+    
+}
+
+#section_ahorcado{
+    background-color:  rgb(6, 6, 6, 0.5);
+}
+
 #div_usuario #botonJugar:hover {
     background: rgb(122, 106, 244);
     color: wheat;
 }
 
-#div_dificultad {
+#div_dificultad,
+#div_seguime {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+.posicion input{
+    background-color: rgba(248, 242, 242, 0.8);
 
 }
 
@@ -184,16 +197,29 @@ h1 {
     margin: 15px auto;
 }
 
+#titulo_seguime,
+#div_seguime .div_dificultad_seguime,
+#div_usuario_seguime{
+    font-size: 4vw;
+    text-align: center;
+    font-family: 'ChocoTxtRegular';
+    font-weight: normal;
+    font-style: normal;
+    margin: 15px auto;
+}
+
 #titulo_dificultad {
     color: rgb(251, 194, 191);
 }
 
-#div_dificultad div {
+#div_dificultad div,
+#div_seguime div {
     width: 90%;
     margin: auto;
 }
 
-#div_dificultad .div_dificultad {
+#div_dificultad .div_dificultad,
+#div_seguime .div_dificultad_seguime {
     border-style: ridge;
     border-radius: 10px;
     background: linear-gradient(90deg, rgb(247, 155, 89, 0.5), rgb(74, 135, 240, 0.5));
@@ -201,21 +227,20 @@ h1 {
     height: 270px;
 }
 
-#div_dificultad .div_dificultad:hover {
+#div_dificultad .div_dificultad:hover,
+#div_seguime .div_dificultad_seguime:hover {
     background: linear-gradient(90deg, rgb(247, 155, 89), rgb(74, 135, 240));
     color: rgb(251, 194, 191);
 }
 
 #ingreso {
-    border-style: double;
+    border-style: none;
     border-radius: 10px;
-    width: 60%;
-    height: 480px;
-    position: absolute;
-    left: 20%;
-    top: 200px;
-    background: linear-gradient(90deg, rgba(248, 188, 145), rgba(152, 185, 241));
+    width: 100%;
+    height: 100%;
+    background:rgb(8, 8, 8,0.5);
     text-align: center;
+    color: antiquewhite;
 }
 
 #ingreso form {
@@ -258,9 +283,15 @@ h1 {
 #perfil_jugador,
 #puntajes {
     width: 80%;
+   
 }
 
-#perfil_jugador img{
+.imagen2{
+    width: 60%;
+    margin-top: 100px;
+}
+
+#perfil_jugador img {
     width: 60%;
     margin-top: 100px;
 }
@@ -278,7 +309,7 @@ h1 {
 }
 
 #puntajes,
-#perfil_jugador h2{
+.nombre_jugador {
     margin-left: 20%;
     font-family: 'BallpointprintRegular';
     font-weight: normal;
@@ -287,8 +318,9 @@ h1 {
     font-size: 2vw;
 }
 
-#perfil_jugador h2 {
+.nombre_jugador {
     font-size: 5vw;
+    margin-right: 40%;
 }
 
 #central {
@@ -757,6 +789,14 @@ div .adivinando {
         margin-top: 20px;
     }
 
+    .nombre_jugador {
+        font-size: 8vw;
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+
     #central {
         width: 100%;
         margin: auto;
@@ -876,5 +916,16 @@ div .adivinando {
     #juego_seguime {
         width: 90%;
 
+    }
+    .imagen2{
+        width: 10%;
+        margin: auto;
+        position: absolute;
+        left:15%;
+        margin-top: -50px;
+    }
+    #ahorcado{
+        color: rgb(8, 8, 8);
+        background-color: rgba(253, 251, 251, 0.5);
     }
 }

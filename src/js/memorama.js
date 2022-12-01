@@ -45,7 +45,6 @@ function nombre_memorama() {
     usuario_memorama = document.getElementById("nombre_usuario").value;
 }
 
-
 var color = ["rojo", "azul", "verde", "rosa", "verde2", "naranja", "amarillo", "negro", "violeta"];
 
 var cont = 0;
@@ -67,7 +66,6 @@ function armado_cartas(dificultad) {
     }
 }
 
-
 var cartasN = [] //array para guardar la posiciones aleatorias de las cartas.
 
 function posicion_cartas(dificultad) {
@@ -85,8 +83,6 @@ function posicion_cartas(dificultad) {
         document.getElementById("juego" + dificultad).innerHTML += "<div id='carta" + cont + "'><ul class='adivinando'><li></li><li><button class='adivinando' onclick='juego(" + cont + "," + cont + "),seleccionarCarta(" + cont + "),comparacionCarta(" + cont + "," + dificultad + ")'><img class='imagen_carta2' src='../img/tarjetas/logoCarta.png' alt=''></button></li><li></li></ul></div>";
         cont++;
     }
-
-
 }
 
 //vista de carta seleccionada por el usuario.
@@ -105,7 +101,6 @@ function seleccionarCarta(cont) {
     posicionCarta.push(pDc);
 }
 
-
 var correctas = 0;
 function comparacionCarta(cont, dificultad) {
     let num = cartaSeleccionada.length - 1;
@@ -119,7 +114,6 @@ function comparacionCarta(cont, dificultad) {
         }
         else {
             setTimeout(() => {
-
                 let carta_error1 = document.createElement("div");
                 carta_error1.setAttribute("id", "carta" + pDc1);
                 carta_error1.innerHTML += "<ul class='adivinando'><li></li><li><button class='adivinando' onclick='juego(" + pDc1 + "," + pDc1 + "),seleccionarCarta(" + pDc1 + "),comparacionCarta(" + pDc1 + "," + dificultad + ")'><img class='imagen_carta2' src='../img/tarjetas/logoCarta.png' alt=''></button></li><li></li></ul>";
@@ -135,15 +129,9 @@ function comparacionCarta(cont, dificultad) {
     }
 }
 
-
-
-
-
-
-
 var segundos = 0;
 var minutos = 0;
-
+var tiempoMenor=1000;
 function cronometro(numero) {
     document.getElementById("cronometro").innerHTML = "<h3>" + minutos + ":" + segundos + "</h3>"
     if (numero != correctas) {
@@ -157,35 +145,14 @@ function cronometro(numero) {
         }
     }
     else {
-        let tiempo = (Number(minutos) * 60) + Number(segundos);
-        let jugNvo = { "nivel": numero, "tiempo": tiempo, "nombre": usuario_memorama };
-        let horario = new Date();
-        let hora = horario.getHours() + ":" + horario.getMinutes() + ":" + horario.getSeconds();
-        localStorage.setItem(hora, JSON.stringify(jugNvo));
-        let baseDatos = localStorage.key(1)
-
         swal({
             icon: "success",
-            title: 'Felicitaciones! Tu tiempo fue de ' + minutos + ':' + segundos,
+            title: 'Felicitaciones ' + usuario_memorama.toLocaleUpperCase() + '! Tu tiempo fue de ' + minutos + ':' + segundos,
             showConfirmButton: false,
             timer: 4000,
             background: 'rgba(63,255,106,0.69)',
             border: '3px solid white'
         })
+        location.reload();
     }
 }
-
-var mejP=1000;
-var jugadores=[];
-cont=0;
-
-function mejor_puntaje(){
-while(cont<localStorage.length){
-    jugadores[cont]=localStorage.key(cont);
-    console.log(jugadores[cont])
-    cont++;
-}
-}
-
-mejor_puntaje();
-
