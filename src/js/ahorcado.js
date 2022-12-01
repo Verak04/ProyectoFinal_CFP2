@@ -1,10 +1,27 @@
-function nombre_usuario(num1, num2) {
-    document.getElementById("formulario_usuario").innerHTML = "<div id='div_usuario'><form action=''><h3>Nombre:</h3><input type='text' id='nombre_usuario'> <button onclick='nombre_memorama(),armado_cartas(" + num1 + "),posicion_cartas(" + num2 + "),cronometro(" + num1 + ")' id='botonJugar'>Jugar</button></form></div>";
+var personaje_perfil = ["../img/tarjetas/imagen1.jfif", "../img/tarjetas/imagen5.png", "../img/tarjetas/imagen11.jpg", "../img/tarjetas/imagen10.png", "../img/tarjetas/imagen8.jfif", "../img/tarjetas/imagen6.jfif", "../img/tarjetas/imagen2.jfif", "../img/tarjetas/imagen14.jpg"];
+
+var usuario = "";
+
+function ingreso() {
+    usuario = document.getElementById("letra").value;
+    document.getElementById("ingreso").innerHTML = "<h1>" + usuario.toUpperCase() + "</h1><h2>Elegí tu personaje de perfil:</h2> <ul id='foto_perfil'></ul>"
+    for (let i in personaje_perfil) {
+        document.getElementById("foto_perfil").innerHTML += "<li> <button class='imagen' onclick='formulario()'><img src=" + personaje_perfil[i] + " alt=''></button></li>"
+    }
 }
 
+function formulario() {
+    document.getElementById("formulario_usuario").innerHTML = "";
+    
+};
 
 
 
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------
 var palabras = ["ABOGADO", "ANGEL", "ENOJADO", "CALABAZA", "VOLADOR", "JIRAFA", "LIBRO", "RELAMPAGO", "DESMAYO", "CONCEBIR", "VERTICE", "SUCUMBIR", "BARBERO", "DICCIONARIO", "ELEFANTE", "HERMANO", "HOSPITAL", "DESARROLLADOR", "DESTORNILLADOR", "ELECTRICO", "ASCENSOR", "ADAPTACION", "AGUDO", "ANTIBIOTICO", "CIRCULACION", "PLASTICO", "GENERAR", "NUMERO",];
 
 /*Elección aleatoria de la palabra (posicion del array)*/
@@ -31,9 +48,7 @@ var puntaje = 0;
 console.log(palabra_ahorcado);
 //Ingreso de letra.
 function ahorcado() {
-    let usuario_= localStorage.getItem("usuario");
-    console.log(usuario_);
-    document.getElementById("perfil_jugador").innerHTML="<h3>"+usuario+"</h3>";
+    ducument.getElementById("jugador_perfil").innerHTML = "<div><h2>hola</h2></div>";
     letra_ingresada = document.getElementById("letra").value;
     console.log(letra_ingresada);
     cont = 0;
@@ -92,5 +107,3 @@ function ahorcado() {
     }
     return;
 };
-
-

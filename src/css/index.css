@@ -21,7 +21,6 @@ body {
     background: linear-gradient(45deg, rgb(88, 3, 60), rgb(36, 22, 68));
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
-
 }
 
 #body_memorama {
@@ -211,7 +210,7 @@ h1 {
     border-style: double;
     border-radius: 10px;
     width: 60%;
-    height: 400px;
+    height: 480px;
     position: absolute;
     left: 20%;
     top: 200px;
@@ -219,24 +218,51 @@ h1 {
     text-align: center;
 }
 
+#ingreso form {
+    margin-top: 10%;
+}
+
 #ingreso label,
-#ingreso h2,
-#ingreso h1 {
+#ingreso h1,
+#ingreso h2 {
     font-family: 'BallpointprintRegular';
     font-weight: bolder;
     font-style: normal;
+    font-size: 6vw;
+}
+
+#ingreso h1 {
     font-size: 4vw;
-    margin-top: 20px;
 }
 
 #ingreso h2 {
     font-size: 3vw;
 }
 
-#perfil_jagador,
+#ingreso button:hover {
+    cursor: pointer;
+}
+
+#ingreso button img:hover {
+    width: 45%;
+}
+
+#ingreso li {
+    margin-bottom: 28px;
+}
+
+#ingreso li:hover {
+    margin-bottom: 5px
+}
+
+#perfil_jugador,
 #puntajes {
     width: 80%;
+}
 
+#perfil_jugador img{
+    width: 60%;
+    margin-top: 100px;
 }
 
 #puntajes div {
@@ -251,13 +277,18 @@ h1 {
     margin-top: 30px;
 }
 
-#puntajes {
+#puntajes,
+#perfil_jugador h2{
     margin-left: 20%;
     font-family: 'BallpointprintRegular';
     font-weight: normal;
     font-style: normal;
     color: rgb(104, 240, 145);
     font-size: 2vw;
+}
+
+#perfil_jugador h2 {
+    font-size: 5vw;
 }
 
 #central {
@@ -322,8 +353,6 @@ input,
     height: auto;
     margin: 0 auto;
     width: auto;
-
-
 }
 
 input:hover,
@@ -333,8 +362,6 @@ input:focus,
     color: rgb(81, 88, 224);
     outline: 0;
 }
-
-
 
 .third {
     border-color: rgb(238, 174, 202);
@@ -355,7 +382,6 @@ a {
 .imagen img {
     width: 35%;
     margin: 30px auto;
-
 }
 
 .imagen {
@@ -366,7 +392,6 @@ a {
 li {
     list-style: none;
 }
-
 
 #dificultad,
 #section_ahorcado {
@@ -379,7 +404,6 @@ li {
     grid-template-columns: repeat(4, 1fr);
 }
 
-
 #dificultad li {
     margin: 100px;
     margin-left: 10%;
@@ -389,7 +413,6 @@ li {
     text-align: center;
     padding-top: 130px;
     background: rgb(175, 14, 84);
-
 }
 
 #dificultad button {
@@ -403,7 +426,6 @@ li {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-left: 50px;
-
 }
 
 #tiempo_memorama h3 {
@@ -413,9 +435,6 @@ li {
     font-size: 2.5vw;
     color: rgb(76, 212, 212);
 }
-
-
-
 
 #juego div ul {
     border-style: dashed;
@@ -455,7 +474,6 @@ li {
     margin: 0;
     padding: 0;
 }
-
 
 #juego6 .imagen_carta {
     width: 44%;
@@ -540,7 +558,6 @@ div #violeta {
     background: linear-gradient(90deg, rgb(95, 2, 95), rgb(14, 3, 3));
 }
 
-
 div .adivinando {
     background: linear-gradient(90deg, rgb(247, 155, 89), rgb(74, 135, 240));
     border: none;
@@ -574,12 +591,22 @@ div .adivinando {
     width: 50%;
     height: 700px;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .div_cubos {
     border-style: groove;
     width: 100%;
+}
+
+.div_cubos button {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.div_cubos button:hover {
+    cursor: pointer;
 }
 
 #cubos4 .div_cubos {
@@ -598,7 +625,40 @@ div .adivinando {
     height: 10vh;
 }
 
+#boton_empezar {
+    width: 20%;
+    height: 40px;
+    padding: 5px;
+    margin-top: -40px;
+    margin-left: 70%;
+    background: rgb(136, 211, 152);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
+#boton_empezar:hover {
+    background: rgb(99, 117, 231);
+    color: white;
+    font-weight: bolder;
+}
+
+#luz {
+    background: white;
+}
+
+#mensaje {
+    font-size: 8vw;
+    position: absolute;
+    left: 28%;
+    margin-top: 200px;
+}
+
+.error {
+    color: rgb(255, 0, 0);
+}
+
+.nivel {
+    color: rgb(187, 242, 142);
+}
 
 @media (max-width:700px) {
     #div_usuario {
@@ -726,7 +786,7 @@ div .adivinando {
 
     #ingreso {
         width: 90%;
-        height: 280px;
+        height: 300px;
         left: 5%;
         top: 200px;
     }
@@ -741,12 +801,15 @@ div .adivinando {
 
     }
 
+    #ingreso form {
+        margin-top: 10%;
+    }
+
     #ingreso h1 {
         font-size: 7vw;
     }
 
     #ingreso h2 {
-        margin-top: 0;
         font-size: 5vw;
     }
 
@@ -759,10 +822,26 @@ div .adivinando {
         width: 50%;
     }
 
+    #ingreso li {
+        margin-bottom: 0;
+    }
+
+    #ingreso button img:hover {
+        width: 35%;
+    }
+
     #logo img {
         width: 70%;
-        padding: 20px;
+        padding: 30px;
         margin: 0;
+    }
+
+    .perfil_jugador {
+        width: 100%;
+    }
+
+    .img_perfil img {
+        width: 1%;
     }
 
     #sector_juegos {
@@ -793,8 +872,9 @@ div .adivinando {
         background: linear-gradient(90deg, rgb(20, 5, 230), rgb(243, 208, 121));
 
     }
+
     #juego_seguime {
         width: 90%;
-        
+
     }
 }

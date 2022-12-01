@@ -40,9 +40,9 @@ function nombre_usuario(num1, num2) {
     document.getElementById("formulario_usuario").innerHTML = "<div id='div_usuario'><form action=''><h3>Nombre:</h3><input type='text' id='nombre_usuario'> <button onclick='nombre_memorama(),armado_cartas(" + num1 + "),posicion_cartas(" + num2 + "),cronometro(" + num1 + "," + num1 + "," + num2 + ")' id='botonJugar'>Jugar</button></form></div>";
 }
 
-var usuario_memorama = [];
+var usuario_memorama = "";
 function nombre_memorama() {
-    usuario_memorama.push(document.getElementById("nombre_usuario").value);
+    usuario_memorama = document.getElementById("nombre_usuario").value;
 }
 
 
@@ -71,7 +71,7 @@ function armado_cartas(dificultad) {
 var cartasN = [] //array para guardar la posiciones aleatorias de las cartas.
 
 function posicion_cartas(dificultad) {
-    document.getElementById("juego").innerHTML = "<div id='tiempo_memorama'><div><h3>" + usuario_memorama[usuario_memorama.length - 1] + "</h3></div><div id='cronometro'></div></div>"
+    document.getElementById("juego").innerHTML = "<div id='tiempo_memorama'><div><h3>" + usuario_memorama + "</h3></div><div id='cronometro'></div></div>"
 
     //posicion de cartas.
     while (cartasN.length < dificultad) {
@@ -134,21 +134,36 @@ function comparacionCarta(cont, dificultad) {
         }
     }
 }
+
+
+
+
+
+
+
 var segundos = 0;
 var minutos = 0;
-function cronometro(numero, num1, num2) {
-    let numero1=num1;
-    let numero2=num2;
+
+function cronometro(numero) {
     document.getElementById("cronometro").innerHTML = "<h3>" + minutos + ":" + segundos + "</h3>"
     if (numero != correctas) {
         if (segundos == 60) {
             minutos++;
             setTimeout("cronometro()", 1000);
+            segundos = 0;
         } else {
             segundos++;
             setTimeout("cronometro(" + numero + ")", 1000);
         }
-    } else {
+    }
+    else {
+        let tiempo = (Number(minutos) * 60) + Number(segundos);
+        let jugNvo = { "nivel": numero, "tiempo": tiempo, "nombre": usuario_memorama };
+        let horario = new Date();
+        let hora = horario.getHours() + ":" + horario.getMinutes() + ":" + horario.getSeconds();
+        localStorage.setItem(hora, JSON.stringify(jugNvo));
+        let baseDatos = localStorage.key(1)
+
         swal({
             icon: "success",
             title: 'Felicitaciones! Tu tiempo fue de ' + minutos + ':' + segundos,
@@ -156,9 +171,21 @@ function cronometro(numero, num1, num2) {
             timer: 4000,
             background: 'rgba(63,255,106,0.69)',
             border: '3px solid white'
-        });
-        armado_cartas(3);
-        posicion_cartas(6);
+        })
     }
-
 }
+
+var mejP=1000;
+var jugadores=[];
+cont=0;
+
+function mejor_puntaje(){
+while(cont<localStorage.length){
+    jugadores[cont]=localStorage.key(cont);
+    console.log(jugadores[cont])
+    cont++;
+}
+}
+
+mejor_puntaje();
+
